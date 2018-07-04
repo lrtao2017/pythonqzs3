@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-__author__ = "lrtao2010@163.om"
+__author__ = "lrtao2010"
 
 print("Hello, world")
 print("你好！")
