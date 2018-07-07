@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#Python 3 字符串常用方法
+#Python 3.7.0 字符串常用方法
 __author__ = "lrtao2010"
 
 #capitalize 将字符串的首字符改为大写
