@@ -99,11 +99,19 @@ __author__ = "lrtao2010"
 # print(v1,v2,v3,v4)
 # True False True True
 
-#expandtabs  把字符串的tab字符（\t）转化为空格，如果tab转换空格数量没有定义，默认一个tab转换成8个空格
-# a = 'I\tam\ttom'
-# v = a.expandtabs(4)
+#expandtabs
+# 按指定的宽度对字符串进行分割，遇到tab字符（\t）转化为空格，默认以8个字符位置分割
+#可用作格式化
+# a = '1234\t56\t7890\t0\t123'
+# v = a.expandtabs(6)
+# u_e_p = 'username\temail\tpasswd\nlrtao2010\tlrtao2010@163.com\t123456\nlrtao\tlrtao@163.com\t123'
+# v1 = u_e_p.expandtabs(30)
 # print(v)
-# I   am  tom
+# print(v1)
+# 1234  56    7890  0     123
+# username                      email                         passwd
+# lrtao2010                     lrtao2010@163.com             123456
+# lrtao                         lrtao@163.com                 123
 
 # find(self, sub, start=None, end=None) 返回首次找到子序列的位置，如果没找到，返回 -1
 # a = 'lilei'
@@ -263,20 +271,26 @@ __author__ = "lrtao2010"
 # print(v1,v2,v3,v4)
 # True False True False
 
-#isprintable 判断字符串中所有的字符串都是可以通过repr表示成字符串，
-#            或者字符串是空的，都返回True,否则返回False
-# v = chr(33).isprintable()
-# v1 = chr(1000000).isprintable()
-# print(v,v1)
-# True False
+#isprintable 检查字符串中是否包含不可安原型显示的内容
+# a = 'test'
+# b = 't\test' #\t在print时不能显示为\t
+# c = 'test\n' #\n在print时不能显示为\n
+# v1 = a.isprintable()
+# v2 = b.isprintable()
+# v3 = c.isprintable()
+# print(v1,v2,v3)
+# True False False
 
-#isspace 判断字符串是否是空格
+
+#isspace 判断字符串是否全部是空格
 # a = ''
 # b = ' '
+# c = 'a b'
 # v1 = a.isspace()
 # v2 = b.isspace()
-# print(v1,v2)
-# False True
+# v3 = c.isspace()
+# print(v1,v2,v3)
+# False True False
 
 #title  标题格式(可以理解为单词首字母大写，其它字符小写)
 # a = 'this is title'
@@ -318,8 +332,6 @@ __author__ = "lrtao2010"
 # i.a.m.t.o.m
 # i#a#m#t#o#m
 
-#lstrip 移除左侧空白(没有测试成功)
-
 #partition(self, sep: str) 按照指定的字符将字符串分为前中后三部分,从左侧开始
 # a = "iamtom"
 # v1 = a.partition("i")
@@ -355,10 +367,13 @@ __author__ = "lrtao2010"
 # a = 'iamtomtomtom'
 # v1 = a.replace('m','i')
 # v2 = a.replace('m','i',1)
+# print(a)
 # print(v1)
 # print(v2)
+# iamtomtomtom
 # iaitoitoitoi
 # iaitomtomtom
+
 
 
 #split(self, sep: Optional[str] = ..., maxsplit: int = ...)
@@ -416,6 +431,13 @@ __author__ = "lrtao2010"
  # i am tom m
  # i am tom
 
+#lstrip 移除左侧空白
+# a = ' i am tom m '
+# v1 = a.lstrip()
+# print(v1)
+# i am tom m
+
+
  #splitlines(self, keepends: bool = ...)
  #按换行符\n切割，如果没指定keepends=True，则会将其从结果中移除
 # a = "this is test1\n this is test2"
@@ -449,4 +471,39 @@ __author__ = "lrtao2010"
 # # 转换为大写，并删除字母o
 # print(b'runoob'.translate(bytes_tabtrans, b'o'))
 # b'RUNB'
+
+################################################################################################
+#字符串也有索引的概念
+# a = 'index'
+# v1 = a[0]
+# v2 = a[3]
+# v3 = a[-1]
+# v4 = a[0:4]
+# print(v1,v2,v3,v4)
+# i e x inde
+
+#len()
+#
+# a = 'abc'
+# b = '测试'
+# v1 = len(a)
+# v2 = len(b)
+# print(v1,v2)
+# 3 2
+
+#对字符串可以直接使用for、while 循环
+
+# a = '测试'
+#
+# for i in a:
+#     print(i)
+# 测
+# 试
+#
+# index = 0
+# while index < len(a):
+#     print(a[index])
+#     index += 1
+# 测
+# 试
 
