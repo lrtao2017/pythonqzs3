@@ -9,4 +9,3 @@ dict
 # tuple 元祖
 # set   集合
 # bool  布尔值
-len
