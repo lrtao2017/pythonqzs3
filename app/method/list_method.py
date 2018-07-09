@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-##Python 3.7.0 列表常用方法
+#Python 3.7.0 列表常用方法
 __author__ = "lrtao2010" 
 
 #创建列表
@@ -187,4 +187,33 @@ __author__ = "lrtao2010"
 # a.reverse()
 # print(a)
 # ['5', '4', '3', '2', '1']
+
+# a = ['1','4','2','3','5']
+# a.sort(reverse=True)
+# print(a)
+# ['5', '4', '3', '2', '1']
+
+##########################################################
+#支持for、while循环
+# a = ['1','2','3']
+# for i in a:
+#     print(i)
+#
+#
+#i = 0
+# while i < len(a):
+#     print(a[i])
+#     i += 1
+
+#修改（替换元素）
+# test = ['a','b','c']
+# test[1] = 0
+# print(test)
+# ['a', 0, 'c']
+
+#删除指定元素
+# test = ['a','b','c']
+# del test[2]
+# print(test)
+# ['a', 'b']
 
