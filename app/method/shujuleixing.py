@@ -5,7 +5,7 @@ __author__ = "lrtao2010"
 # str   字符串
 # list  列表
 # dict  字典
-dict
 # tuple 元祖
 # set   集合
+set
 # bool  布尔值
