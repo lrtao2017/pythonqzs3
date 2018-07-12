@@ -7,5 +7,4 @@ __author__ = "lrtao2010"
 # dict  字典
 # tuple 元祖
 # set   集合
-set
 # bool  布尔值
