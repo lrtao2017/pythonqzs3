@@ -76,7 +76,7 @@ __author__ = "lrtao2010"
 # frozenset({'n', 'e', 'c', 'N', 'a', 'g', 'h', 'o'})
 
 #列表去重，不考虑原来顺序
-# name = {'tom','lilei','tom','jon','zdk'}
+# name = ['tom','lilei','tom','jon','zdk']
 # name = list(set(name))
 # print(name)
 # ['tom', 'jon', 'zdk', 'lilei']
