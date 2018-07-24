@@ -79,21 +79,21 @@ menu = {
 #     else:
 #          continue
 
-# if __name__ == '__main__':
-#     current_layer = menu
-#     parent_layer = []    #将父级key值放入到列表中
-#     flags = False  #设置标志位
-#     while not flags:
-#         for key in current_layer:
-#             print(key)
-#         choose = input("请选择，输入b返回上一级菜单，输入q退出菜单:").strip()
-#         if choose in current_layer:
-#             parent_layer.append(current_layer)   #将当前的状态放入列表中
-#             current_layer = current_layer[choose]
-#         elif choose == 'b':
-#             if parent_layer:
-#                 current_layer = parent_layer.pop()
-#         elif choose == 'q':
-#             flags = True
-#         else:
-#             print("\033[34;1m输入有误，请重新输入\033[0m")
+if __name__ == '__main__':
+    current_layer = menu
+    parent_layer = []    #将父级key值放入到列表中
+    flags = False  #设置标志位
+    while not flags:
+        for key in current_layer:
+            print(key)
+        choose = input("请选择，输入b返回上一级菜单，输入q退出菜单:").strip()
+        if choose in current_layer:
+            parent_layer.append(current_layer)   #将当前的状态放入列表中
+            current_layer = current_layer[choose]
+        elif choose == 'b':
+            if parent_layer:
+                current_layer = parent_layer.pop()
+        elif choose == 'q':
+            flags = True
+        else:
+            print("\033[34;1m输入有误，请重新输入\033[0m")

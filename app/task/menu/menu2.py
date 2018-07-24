@@ -46,3 +46,23 @@ menu = {
     '山东':{},
 }
 
+des_name_dict = menu
+des_name_dict_old = {}
+no_quit = True
+while no_quit:
+    for key in des_name_dict.keys():
+        print(key)
+    des_name = input('> b or q').strip()
+    if not des_name:continue
+    elif des_name == 'b':
+        pass
+    elif des_name in des_name_dict.keys():
+        des_name_dict = des_name_dict[des_name]
+        continue
+    elif des_name == 'q':
+        no_quit = False
+    else:
+        print('error')
+        continue
+
+
