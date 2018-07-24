@@ -51,10 +51,10 @@ def Account_validation(username, Md5_passwd):
     with open(account_file,'r') as f:
         for line in f.readlines():
             lines = line.split()
-            if lines == []:
-                print('账号或密码有问题，请联系管理员处理')
-                sys.exit()
-            if username == lines[0]:
+            if len(lines) != 0:
+              print('账号或密码有问题，请联系管理员处理')
+              sys.exit()
+            elif username == lines[0]:
                 if Md5_passwd == lines[1]:
                     print("欢迎  %s 登录" % username)
                     sys.exit()
