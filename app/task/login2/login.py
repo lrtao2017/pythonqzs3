@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 __author__ = "lrtao2010"
 
-name_list = ['zhangsan','李四','wangwu']
+name_list = ['zhangsan','lisi','wangwu']
 passwd_list = ['123456','abc','123abc']
 locked_account_file = "lock.txt"
 error_count = 0
+user_lock = 0
 
 while error_count < 3:
     user_name = input("请输入用户名：" ).lower()
@@ -20,8 +21,6 @@ while error_count < 3:
                     user_lock = 1
                     error_count = 3
                     break
-                else:
-                    user_lock = 0
         user_name_old = user_name
 
     if user_lock == 0:
