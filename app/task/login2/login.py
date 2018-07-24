@@ -3,7 +3,7 @@ __author__ = "lrtao2010"
 
 name_list = ['zhangsan','李四','wangwu']
 passwd_list = ['123456','abc','123abc']
-locked_un_file = "lock.txt"
+locked_account_file = "lock.txt"
 error_count = 0
 
 while error_count < 3:
@@ -12,7 +12,7 @@ while error_count < 3:
 
     if error_count == 0:
         # 检查账号是否被锁定
-        with open(locked_un_file, 'r') as L:
+        with open(locked_account_file, 'r') as L:
             for Line in L.readlines():
                 Lines = Line.split()
                 if Lines != [] and user_name == Lines[0]:
@@ -42,7 +42,7 @@ while error_count < 3:
                 print('您还有 %s 次重试机会'  % left_count)
                 # 存在的账号密码错误三次被锁定
                 if error_count == 3:
-                    with open(locked_un_file, 'a') as user_lock:
+                    with open(locked_account_file, 'a') as user_lock:
                         user_lock.write(user_name + '\n')
                     print("用户名、密码错误三次，%s 账号已被锁定，请联系管理员解锁账号" % user_name)
         else:
