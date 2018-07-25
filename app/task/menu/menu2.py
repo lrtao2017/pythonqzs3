@@ -49,34 +49,28 @@ menu = {
 des_name_dict = menu
 key_list = []   #存放选择的目的地，用于返回上一次
 no_quit = True
-des_name_b = ''
+
 while no_quit:
     #print(key_list)
     for key in des_name_dict.keys():
         print(key) 
     des_name = input("请选择目的地(按'b'返回上一层，'q'退出程序)>>>").strip()
     if des_name in des_name_dict.keys():
-        '''当上一次输入b返回后，再次选择正确的路径，key_list会保留两个同级
-       路径，再次操作返回时就会出现错误 '''
-        if len(key_list) != 0 and des_name_b == 'b':
-            key_list.pop()
-        des_name_b = des_name
         key_list.append(des_name)
         des_name_dict = des_name_dict[des_name]  #用目的地作为键查找的新字典重置原来的字典
         if len(des_name_dict) == 0:
             print("已到达最底层，请返回上一层")
         continue
     elif des_name == 'b':
-        des_name_b = 'b'
         if len(key_list) == 0:
             des_name_dict = menu
             continue
         else:
             key_list.pop()
-            if len(key_list) == 1 or len(key_list) == 0:
+            if len(key_list) == 0:
                 des_name_dict = menu
                 continue
-            for keys in range(len(key_list)-1):
+            for keys in range(len(key_list)):
                 if keys == 0:
                     des_name_dict_old = menu
                 des_name_dict = des_name_dict_old[key_list[keys]]   #通过目的地列表重置字典
