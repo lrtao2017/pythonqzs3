@@ -52,14 +52,14 @@ no_quit = True
 while no_quit:
     for key in des_name_dict.keys():
         print(key) 
-    des_name = input('> b or q').strip()
+    des_name = input("\n请选择目的地(按'b'返回上一层，'q'退出程序)").strip()
     if not des_name:continue
     elif des_name in des_name_dict.keys():
         key_list.append(des_name)
-        print(key_list)
+        #print(key_list)
         des_name_dict = des_name_dict[des_name]
         if des_name_dict == {}:
-            print("已到达最底层，请返回上一层")
+            print("\n已到达最底层，请返回上一层\n")
         continue
     elif des_name == 'b':
         if len(key_list) == 0:
@@ -80,7 +80,7 @@ while no_quit:
     elif des_name == 'q':
         no_quit = False
     else:
-        print('error')
+        print("输入有误，请重新选择")
         continue
 
 
