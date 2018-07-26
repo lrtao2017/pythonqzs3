@@ -17,6 +17,7 @@ while error_count < 3:
             for Line in L.readlines():
                 Lines = Line.split()
                 if Lines != [] and user_name == Lines[0]:
+                    #!=[]防止locked_account_file中有空行报错
                     print("%s 账号已经被锁定，请联系管理员解锁账号" % user_name)
                     user_lock = 1
                     error_count = 3
