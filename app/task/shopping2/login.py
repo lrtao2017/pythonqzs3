@@ -8,7 +8,7 @@ def login():
     error_count = 0
 
     while error_count < 3:
-        user_name = input("请输入用户名：" ).lower()
+        user_name = input("请输入用户名：" ).strip().lower()
         user_password = input("请输入密码：")
 
         if error_count == 0:
@@ -31,8 +31,8 @@ def login():
         # 验证账号密码
         if user_name in name_passwd.keys():
             if user_password == name_passwd[user_name]:
-                print("欢迎 %s 光临" % user_name)
-                return 'login_ok' = 'ok'
+                print("%s 您好，欢迎光临！" % user_name)
+                return 'ok'
             else:
                 print("用户名或密码错误")
                 error_count += 1
