@@ -5,33 +5,35 @@ __author__ = "lrtao2010"
 import login,sys,os
 
 error_input_count = 0
-shopping_list = {} #购物车
-
+shopping_list = {}  # 购物车
 goods_code = {
-    '0001':{'电脑':1999 },
-    '0002':{'鼠标':10 },
-    '0003':{'游艇':20 },
-    '0004':{'美女':998 }
+    '0001': {'电脑': 1999},
+    '0002': {'鼠标': 10},
+    '0003': {'游艇': 20},
+    '0004': {'美女': 998}
 }
 
 def shopping():
+
+    record_file = "%s_ex_record.txt" % user_name
+
     bc_balance_in = input("\033[1;34m请输入您的购物卡余额(元)：\033[0m").strip()
     if bc_balance_in.isdigit():
         bc_balance = int(bc_balance_in)
         bc_balance_z = int(bc_balance_in) #记录卡上原始金额，在购买小票中使用
         print('您的卡上余额为：\033[1;34m%s 元\033[0m,祝您购物愉快！' % bc_balance )
     else:
-        print("\033[1;33m输入有误\033[0m")
         global error_input_count
         error_input_count += 1
-        if error_input_count == 3:
+        print("\033[1;33m输入有误,您还有 %s 次输入机会\033[0m" % (5 - error_input_count))
+
+        if error_input_count == 5:
             print("\033[1;31m卡上没有余额，今天购物到此结束,欢迎下次光临\033[0m")#打印红色字体
-            sys.exc_info()
+            sys.exit()
         else:
             shopping()
     print_ex_record = input('\033[1;34m是否查看上次的消费记录y/n（n）:\033[0m').strip()
     if print_ex_record == 'y':
-        record_file = "%s_ex_record.txt" % user_name
         if os.path.isfile(record_file):
             with open(record_file, 'r', encoding='utf-8') as L:
                 print('\033[1;36m您上次消费信息如下：\033[0m')
@@ -91,7 +93,6 @@ def shopping():
             print('\n\033[1;36m您今天没有购买任何商品,欢迎下次光临\033[0m')#青蓝色
         else:
             print('\n\033[1;36m购物信息详情:\033[0m')
-            record_file = "%s_ex_record.txt" % user_name
             with open(record_file, 'w', encoding='utf-8') as f:
                 print('==========================')
                 print('==========================', file=f)
