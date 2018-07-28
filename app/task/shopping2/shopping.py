@@ -116,5 +116,4 @@ def shopping():
 #启动购物程序
 if __name__ == '__main__':
     user_name = login.login()
-    if user_name != '':
-        shopping()
+    if user_name:shopping()
