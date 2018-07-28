@@ -31,8 +31,8 @@ def login():
         # 验证账号密码
         if user_name in name_passwd.keys():
             if user_password == name_passwd[user_name]:
-                print("%s 您好，欢迎光临！" % user_name)
-                return 'ok'
+                print('\033[1;36m%s 您好，欢迎光临!\033[0m' % user_name)
+                return user_name
             else:
                 print("用户名或密码错误")
                 error_count += 1
