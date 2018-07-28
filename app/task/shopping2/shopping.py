@@ -12,18 +12,20 @@ goods_code = {
     '0003':{'游艇':20 },
     '0004':{'美女':998 }
 }
+
 def shopping():
-    print('\n')
-    bc_balance_in = input("请输入您的银行卡余额(元)：").strip()
+    bc_balance_in = input("\033[1;34m请输入您的购物卡余额(元)：\033[0m").strip()
     if bc_balance_in.isdigit():
         bc_balance = int(bc_balance_in)
+        bc_balance_z = int(bc_balance_in) #记录卡上原始金额，在购买小票中使用
+        print('\033[1;34m您的卡上余额为：%s 元,祝您购物愉快！\033[0m' % bc_balance )
     else:
         print("\033[1;33m输入有误\033[0m")
         global error_input_count
         error_input_count += 1
         if error_input_count == 3:
-            print("\033[1;31m此次购物很不愉快，再见！\033[0m")
-            sys.exit()
+            print("\033[1;31m卡上没有余额，今天购物到此结束,欢迎下次光临\033[0m")#打印红色字体
+            sys.exc_info()
         else:
             shopping()
     print('\n商品明细表如下：')
@@ -35,9 +37,10 @@ def shopping():
     continue_to_buy = 'Y'
     while continue_to_buy == 'Y':
         if bc_balance < 10:
-            print('卡上余额严重不足，今天购物到此结束')
+            print('\033[1;31m卡上余额严重不足，今天购物到此结束,欢迎下次光临\033[0m')
             continue_to_buy = 'N'
             continue
+
         product_number = input('请输入您要购买商品的商品编号（每次限购一种）').strip()
         if product_number in goods_code.keys():
             amount = input('请输入购买数量:').strip()
@@ -49,22 +52,42 @@ def shopping():
 
                 t_price = amount * goods_price #计算购买商品总价
                 if bc_balance >= t_price:
-                    #加入购物车
                     bc_balance -= t_price
-                    print('现在卡上余额为 %s 元' % bc_balance )
-                    if goods_name in shopping_list.keys():
-                        shopping_list[goods_name] += amount
+                    print('\033[1;34m现在卡上余额为 %s 元，"%s" 已加入购物车\033[0m' % (bc_balance,goods_name) )#打印蓝色字体
+                    # 将商品编号和数量加入购物车,
+                    if product_number in shopping_list.keys():
+                        shopping_list[product_number] += amount
                     else:
-                        shopping_list.update({goods_name:amount})
+                        shopping_list.update({product_number:amount})
                 else:
-                    print('卡上余额不足,请重新选择商品和数量')
-
+                    print('\033[1;33m卡上余额不足\033[0m')#打印黄色字体
+                #是否继续购物，只有输入N/n时，才停止购物
+                continue_to_buy_input = input('是否继续购物 Y/N(Y):').strip()
+                if continue_to_buy_input == 'N' or continue_to_buy_input == 'n':
+                    print('\033[1;32m购物到此结束,欢迎再次光临\033[0m')
+                    continue_to_buy = 'N'
             else:
                 print('\033[1;33m输入有误，请重新购买\033[0m')
         else:
             print('\033[1;33m输入有误，请重新购买\033[0m')
+    #打印购物小票：
+    if continue_to_buy == 'N':
+        if len(shopping_list) == 0:
+            print('\n\033[1;36m您今天没有购买任何商品,欢迎下次光临\033[0m')#青蓝色
+        else:
+            print('\n\033[1;36m购物信息详情:\033[0m')
+            print('==========================')
+            print('%-6s%-6s%s ' % ("商品名称", "商品数量","金  额"))
+            #goods_c 商品编号，goods_a 购买数量，googs_n 商品名称，goods_p 商品单价
+            for goods_c,goods_a in shopping_list.items():
+                for goods_n,goods_p in goods_code[goods_c].items():
+                    print('{:^7}'.format(goods_n), '{:<9}'.format(goods_a), goods_p * goods_a)
+            print('--------------------------')
+            print('%-8s%s' % ('消费金额总计：',(bc_balance_z - bc_balance)))
+            print('%-9s%s' % ('购物卡余额：',bc_balance ))
+            print('==========================')
 
+#启动购物程序
 if __name__ == '__main__':
-    # if login.login() == "ok":
-    #    shopping()
-    shopping()
+    if login.login() == "ok":
+       shopping()
