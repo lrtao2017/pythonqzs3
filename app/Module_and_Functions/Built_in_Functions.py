@@ -76,3 +76,18 @@ __author__ = "lrtao2010"
 # print(a,b,c,d)
 # False True True False
 
+#breakpoint(*args, **kws)
+#Python3.7带有一个名为breakpoint（）的内置函数，它在调用站点时进入调试器。
+#虽然它是相同的结果，但它更直观和惯用。
+# def divide(divisor, dividend):
+#     breakpoint()     #出现异常后在（Pdb）后输入atgs(a),可以打印变量的具体值
+#     return dividend / divisor
+#
+# if __name__ == '__main__':
+#     print(divide(0, 4000))
+# > e:\python\learning\app\module_and_functions\built_in_functions.py(84)divide()
+# -> return dividend / divisor
+# (Pdb) args
+# divisor = 0
+# dividend = 4000
+# (Pdb)
