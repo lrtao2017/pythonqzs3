@@ -89,8 +89,8 @@ if login_successful:
         borrow_book = name_info[user_name]['borrow_book']
         if len(borrow_book) != 0:
             print('您现在借阅的图书有：')
-            for book in borrow_book:
-                print(book)
+            for id,book in enumerate(borrow_book):
+                print(id,book)
         #生成图书馆图书列表
         with open(book_file, 'r', encoding='utf-8') as bf:
             for book_name in bf.readlines():
@@ -98,42 +98,81 @@ if login_successful:
 
         exit_app = False
         while not exit_app:
+            user_card = int(name_info[user_name]['card']) #获取卡上余额
             print('B(借书)', 'R(还书)','E(退出系统)')
-            operating=input("请选择要进行的操作(B/R/E(B)):").strip()
+            operating=input("请选择要进行的操作(B/R/E (B)):").strip()
             #借书
             if operating == 'B' or operating == 'b' or operating == '':
                 borrow_again = True
                 while borrow_again:
+                    if user_card == 0:
+                        print("你卡上的余额不足，请先还书，再来借书")
+                        break
                     print('现在可以借阅的图书有：')
                     for id,book in enumerate(book_name_list):
                         print(id,book)
-                    book_name_id_str = input('请选择要要借阅的图书编号：').strip()
-                    if book_name_id_str != 0:
-                        book_name_id = int(book_name_id_str)
-                        if book_name_id <= len(book_name_list):
-                            #将借阅的图书添加的用户借阅列表，并从图书馆图书列表中删除
-                            borrow_book.append(book_name_list.pop(book_name_id))
-                            print('您现在借阅的图书有：')
-                            for book in borrow_book:
-                                print(book)
-                            borrow_again_input = input('是否继续借阅图书(y/n (n))').strip()
-                            if borrow_again_input != 'y':
-                                borrow_again = False
+                    book_name_id = input('请选择要要借阅的图书编号：').strip()
+                    if book_name_id.isdigit() and int(book_name_id) <= len(book_name_list):
+                        #将借阅的图书添加的用户借阅列表，并从图书馆图书列表中删除
+                        borrow_book.append(book_name_list.pop(book_name_id))
+                        user_card -= 100
+                        print('您现在借阅的图书有：')
+                        for id,book in enumerate(borrow_book):
+                            print(id,book)
+                        borrow_again_input = input('是否继续借阅图书(y/n (n))').strip()
+                        if borrow_again_input != 'y':
+                            borrow_again = False
                     else:
                         print('输入有误，请重新选择')
 
 
 
             elif operating == 'R' or operating == 'r':
-                pass
+                r_again_input = True
+                while r_again_input:
+                    print('您现在借阅的图书有：')
+                    for id, book in enumerate(borrow_book):
+                        print(id, book)
+                    r_book_id = input('请输入要还书的编号：').strip()
+                    if r_book_id.isdigit() and int(r_book_id) <= len(borrow_book):
+                        # 将要还的图书添加到图书馆图书列表，并从用户借阅列表中删除
+                        book_name_list.append(borrow_book.pop(r_bookk_id))
+                        user_card += 100
+                        if len(borrow_book) != 0:
+                            print('您现在借阅的图书有：')
+                            for id, book in enumerate(borrow_book):
+                                print(id, book)
+                            r_again_input = input('是否继续还书书(y/n (n))').strip()
+                            if r_again_input != 'y':
+                                r_again_input = False
+                        else:
+                            print('您现在没有借阅任何图书')
+                            r_again_input = False
+                    else:
+                        print('输入有误，请重新选择')
+
             elif operating == 'E' or operating == 'e':
-                # #报存图书馆图书列表
-                # book_name_str = ",".join(book_name_list)
-                # with open(book_file, 'w',encoding='utf-8') as lbook_name:
-                #     lbook_name.write(book_name_str.strip())
-                # # 报存用户借阅图书列表
-                # with open(user_borrow_book_file, 'w', encoding='utf-8') as ubook_name:
-                #     ubook_name.write(borrow_book.strip())
+                #报存图书馆图书列表
+                book_name_str = ",".join(book_name_list)
+                with open(book_file, 'w',encoding='utf-8') as lbook_name:
+                    lbook_name.write(book_name_str.strip())
+                # 报存用户信息
+                name_info[user_name]['borrow_book'] = borrow_book
+                name_info[user_name]['card'] = user_card
+                name_info_list = []
+                for name in name_info.keys():
+                    name_info_list_item = []
+                    name_info_list_item.append(name)
+                    for k, v in name_info[name].items():
+                        if k == 'borrow_book':
+                            name_info_list_item.extend(v)
+                        else:
+                            name_info_list_item.append(v)
+                    name_info_list.append(name_info_list_item)
+                name_info_list_str = '\n'.join(','.join(item) for item in name_info_list)
+                user_file = 'user.txt'
+                with open(user_file, 'w', encoding='utf-8') as userf:
+                    userf.write(name_info_list_str)
 
                 print('谢谢使用，再见！')
                 exit_app = True

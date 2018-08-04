@@ -1,1 +1,1 @@
-<Python基础编程>,<Python进阶编程>,<Python高级编程>,<Django入门指南>
+<Python进阶编程>,<Django入门指南>
