@@ -1,4 +1,3 @@
-alex,alex123,0,管理员,0,<python基础编程>,<python进阶编程>,<Django入门指南>,<Python高级编程>,A
+alex,alex123,0,管理员,0,<python基础编程>,<python进阶编程>,<Django入门指南>,<Python高级编程>
 pizza,pizza123,0,教师,300
-john,john123,1,学生,300
-bbb,bbb123,0,BB,200,A
+john,john123,0,学生,300

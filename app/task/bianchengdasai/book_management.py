@@ -2,7 +2,6 @@
 __author__ = "lrtao2010"
 
 
-
 user_file = 'user.txt'  #存放用户信息的文件
 book_file = "book.txt"  #存放图书馆图书信息的文件
 error_count = 0
