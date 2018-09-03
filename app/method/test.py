@@ -1,0 +1,8 @@
+#!/usr/bin/env python 
+__author__ = "lrtao2010" 
+
+def test():
+    print("This is test")
+
+if __name__ == '__main__':
+    test()

@@ -25,7 +25,7 @@ __author__ = "lrtao2010"
 # os.environ  获取系统环境变量
 # os.path.abspath(path)  返回path规范化的绝对路径
 # os.path.split(path)  将path分割成目录和文件名二元组返回
-# os.path.dirname(path)  返回path的目录。其实就是os.path.split(path)的第一个元素
+# os.path.dirname(path)  返回path的上一层目录。其实就是os.path.split(path)的第一个元素
 # os.path.basename(path)  返回path最后的文件名。如何path以／或\结尾，那么就会返回空值。即os.path.split(path)的第二个元素
 # os.path.exists(path)  如果path存在，返回True；如果path不存在，返回False
 # os.path.isabs(path)  如果path是绝对路径，返回True
@@ -35,7 +35,7 @@ __author__ = "lrtao2010"
 # os.path.getatime(path)  返回path所指向的文件或者目录的最后存取时间
 # os.path.getmtime(path)  返回path所指向的文件或者目录的最后修改时间
 
-import os
+#import os
 # print(os.getcwd())
 # E:\python\learning\app\Module_and_Functions
 # print(os.name)
