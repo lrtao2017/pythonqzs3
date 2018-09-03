@@ -44,7 +44,7 @@ __author__ = "lrtao2010"
 # sys_module.py
 
 
-import sys,os
+#import sys,os
 # print(os.path.abspath(__file__))
 # E:\python\learning\app\Module_and_Functions\sys_module.py
 #print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -60,3 +60,10 @@ import sys,os
 # test.test()
 #
 # This is test
+
+#实时打印输出
+# import time,sys
+# for i in range(20):
+#     sys.stdout.write("=")
+#     time.sleep(0.5)
+#     sys.stdout.flush() #从缓存刷新的屏幕
