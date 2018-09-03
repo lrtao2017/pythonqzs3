@@ -49,8 +49,14 @@ import sys,os
 # E:\python\learning\app\Module_and_Functions\sys_module.py
 #print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# from method import test
+# test.test()
+# ModuleNotFoundError: No module named 'method'
 
-BASE_DIR=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(BASE_DIR)
-from method import test
-test.test()
+#动态修改sys.path变量
+# BASE_DIR=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# sys.path.append(BASE_DIR)
+# from method import test
+# test.test()
+#
+# This is test
