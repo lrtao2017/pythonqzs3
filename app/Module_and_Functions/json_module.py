@@ -25,18 +25,18 @@ JSON不仅是标准格式，并且比XML更快，而且可以直接在Web页面�
 
 import json
 
-# dic = {'name':'test','age':18}
+# dic = {'name':'example','age':18}
 # json_dic = json.dumps(dic)
 # print(json_dic,type(json_dic))
-# {"name": "test", "age": 18} <class 'str'>
+# {"name": "example", "age": 18} <class 'str'>
 
-# dic = '{"name":"test","age":18}'
+# dic = '{"name":"example","age":18}'
 # json_dic = json.loads(dic)
 # print(json_dic,type(json_dic))
-# {'name': 'test', 'age': 18} <class 'dict'>
+# {'name': 'example', 'age': 18} <class 'dict'>
 
 # json_f = 'json_text.txt'
-# json_dic = {'name':'test','age':18}
+# json_dic = {'name':'example','age':18}
 # with open(json_f,'w') as f:
 #     f.write(json.dumps(json_dic))  #等同于json.dump(json_dic,f)，dump只能用于写入磁盘。
 
@@ -44,4 +44,4 @@ import json
 #     my_dic=json.loads(f.read()) #等同于my_dic=json.load(f)，load只能用于从磁盘读取
 #
 # print(my_dic['name'])
-# test
+# example

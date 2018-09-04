@@ -90,8 +90,8 @@ for循环调用可迭代对象的__next__方法去取值，并且for 循环可�
 
 
 #三元表达式
-# name = 'test'
-# res='True' if name == 'test' else 'False'
+# name = 'example'
+# res='True' if name == 'example' else 'False'
 # print(res)
 # True
 

@@ -30,9 +30,9 @@ __author__ = "lrtao2010"
 # my_sys = sys.argv
 # for i in my_sys:
 #     print(i)
-# >>>python sys_module.py test test1 test2
+# >>>python sys_module.py example test1 test2
 # sys_module.py
-# test
+# example
 # test1
 # test2
 # print(sys.path)
@@ -49,17 +49,17 @@ __author__ = "lrtao2010"
 # E:\python\learning\app\Module_and_Functions\sys_module.py
 #print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# from method import test
-# test.test()
+# from method import example
+# example.example()
 # ModuleNotFoundError: No module named 'method'
 
 #动态修改sys.path变量
 # BASE_DIR=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # sys.path.append(BASE_DIR)
-# from method import test
-# test.test()
+# from method import example
+# example.example()
 #
-# This is test
+# This is example
 
 #实时打印输出
 #显示进度条

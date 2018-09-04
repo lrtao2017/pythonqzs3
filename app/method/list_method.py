@@ -16,7 +16,7 @@ __author__ = "lrtao2010"
 #list()将其他类型转换成列表
 # a = list('123')
 # b = list('thisistest')
-# c = list('this is test')
+# c = list('this is example')
 # print(a)
 # print(b)
 # print(c)
@@ -206,14 +206,14 @@ __author__ = "lrtao2010"
 #     i += 1
 
 #修改（替换元素）
-# test = ['a','b','c']
-# test[1] = 0
-# print(test)
+# example = ['a','b','c']
+# example[1] = 0
+# print(example)
 # ['a', 0, 'c']
 
 #删除指定元素
-# test = ['a','b','c']
-# del test[2]
-# print(test)
+# example = ['a','b','c']
+# del example[2]
+# print(example)
 # ['a', 'b']
 

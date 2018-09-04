@@ -20,16 +20,16 @@ import random
 # 3
 # 1
 
-# l0_test = random.choice([11,'22','test']) #从列表中随机选择一个元素
+# l0_test = random.choice([11,'22','example']) #从列表中随机选择一个元素
 # l1_test = random.choices([11,22,33]) #从列表中随机选择一个元素组成一个新列表
-# l2_test = random.sample([11,'22','test',33,44],3) #必须指定选择的元素个数,
+# l2_test = random.sample([11,'22','example',33,44],3) #必须指定选择的元素个数,
 #
 # print(l0_test,type(l0_test))
 # print(l1_test,type(l1_test))
 # print(l2_test)
 # 22 <class 'str'>
 # [11] <class 'list'>
-# [44, 'test', '22']
+# [44, 'example', '22']
 
 # l_test = [1,2,3,4,5]
 # random.shuffle(l_test) #将列表元素顺序打乱

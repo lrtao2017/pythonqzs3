@@ -163,11 +163,11 @@ __author__ = "lrtao2010"
 
 #dict() 生成字典
 # a=dict()
-# b=dict(age=1,name='test')
+# b=dict(age=1,name='example')
 # print(a)
 # print(b)
 # {}
-# {'age': 1, 'name': 'test'}
+# {'age': 1, 'name': 'example'}
 
 #dir()
 #不带参数时，返回当前范围内的变量、方法和定义的类型列表；
@@ -299,12 +299,12 @@ __author__ = "lrtao2010"
 
 
 #hash() 返回一个不可变数据类型的hash 值
-# test_hash = hash('test')
+# test_hash = hash('example')
 # print(test_hash)
 # -4403578415847662099
 
 #id()获取对象的内存地址
-# a = 'test'
+# a = 'example'
 # print(id(a))
 # 30823904
 

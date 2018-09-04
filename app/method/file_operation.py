@@ -202,11 +202,11 @@ __author__ = "lrtao2010"
 #     # hello
 
 # with open('file.txt','wb+') as f:
-#     file_data = 'test wb'
+#     file_data = 'example wb'
 #     f.write(file_data.encode('utf-8'))
 #     f.seek(0)
 #     print(f.read())
-#     # b'test wb'
+#     # b'example wb'
 
 # flush() 文件内容从内存刷到硬盘
 # tell()  查看文件当前光标位置

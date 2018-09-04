@@ -37,14 +37,14 @@ __author__ = "lrtao2010"
 #     return wrapper
 #
 # @run_time
-# #@ 语法糖  @run_time 等同于执行test=run_time(test),run_time(test)返回的是wrapper的地址
-# def test():
+# #@ 语法糖  @run_time 等同于执行test=run_time(example),run_time(example)返回的是wrapper的地址
+# def example():
 #     time.sleep(3)
-#     print('test run over')
+#     print('example run over')
 #
-# test()  #test() 执行的是wrapper()
+# example()  #example() 执行的是wrapper()
 #
-# test run over
+# example run over
 # 运行时间是3.0000040531158447
 #
 # import time

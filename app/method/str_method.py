@@ -52,12 +52,12 @@ __author__ = "lrtao2010"
 #                lrtao
 
 # zfill(self, width: int) z指zero，用0将字符填充到指定长度(左侧填充)
-# a = "test"
+# a = "example"
 # v = a.zfill(20)
 # print(v)
 # 0000000000000000test
 
-# a = "test"
+# a = "example"
 # v1 = a.rjust(20,'0')
 # print(v1)
 # 0000000000000000test
@@ -272,9 +272,9 @@ __author__ = "lrtao2010"
 # True False True False
 
 #isprintable 检查字符串中是否包含不可安原型显示的内容
-# a = 'test'
-# b = 't\test' #\t在print时不能显示为\t
-# c = 'test\n' #\n在print时不能显示为\n
+# a = 'example'
+# b = 't\example' #\t在print时不能显示为\t
+# c = 'example\n' #\n在print时不能显示为\n
 # v1 = a.isprintable()
 # v2 = b.isprintable()
 # v3 = c.isprintable()
