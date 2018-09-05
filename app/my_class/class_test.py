@@ -1,7 +1,7 @@
 #!/usr/bin/env python 
 __author__ = "lrtao2010" 
 
-#python3.7 类--dog class
+#python3.7 类
 
 # class Dog():
 #     """一次模拟小狗的简单尝试"""
