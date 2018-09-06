@@ -198,7 +198,7 @@ import re
 
 #使用for循环
 # for i in ret:
-#     print(i.group('name','age')
+#     print(i.group('name','age'))
 #
 # # ('lilie', '18')
 # # ('tom', '17')
