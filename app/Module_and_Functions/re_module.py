@@ -121,3 +121,85 @@ import re
 #re.split('[ab]','abcd')     #先按'a'分割得到''和'bcd',在对''和'bcd'分别按'b'分割
 # print(re.split('[ab]','abcd'))
 # ['', '', 'cd']
+
+#sub 替换
+# ret0 = re.sub('\d','A','adae123456adfe') #全部替换
+# ret1 = re.sub('\d','A','adae123456adfe',2) #指定替换次数
+# ret2 = re.subn('\d','A','adae123456adfe')  #全部替换，并返回替换次数
+# ret3 = re.subn('\d+','A','adae123456ad23123f23232e',2)
+#
+# print(ret0)
+# print(ret1)
+# print(ret2)
+# print(ret3)
+#
+# # adaeAAAAAAadfe
+# # adaeAA3456adfe
+# # ('adaeAAAAAAadfe', 6)
+# # ('adaeAadAf23232e', 2)
+
+#compile 将规则进行编译，在重复多次执行一个规则时使用
+# com_test = re.compile('\d{2}')
+# ret0 = com_test.search('abc123ee345')
+# ret1 = com_test.findall('abc123ee345')
+# print(ret0.group())
+# print(ret1)
+# # 12
+# # ['12', '34']
+
+#finditer 将匹配到的内容生成可迭代对象，在大数据配置时使用
+# ret = re.finditer('\d','awe23223ee32dr3523ser')
+# print(ret)
+#
+# print(next(ret).group())
+# print(next(ret).group())
+# print(next(ret).group())
+# print(next(ret).group())
+# # <callable_iterator object at 0x00000000025C6438>
+# # 2
+# # 3
+# # 2
+# # 2
+
+#匹配优先级
+
+# ret0=re.findall('www\.(baidu|163)\.com','qser223www.baidu.comdfetwww.163.comaewrs')
+# ret1=re.findall('www\.(?:baidu|163)\.com','qser223www.baidu.comdfetwww.163.comaewrs') #取消优先级
+#
+# print(ret0)
+# print(ret1)
+# # ['baidu', '163']
+# # ['www.baidu.com', 'www.163.com']
+
+#匹配所有整数
+# ret0=re.findall(r"\d+","1-2*(60+(-40.35/5)-(-4*3))")
+# ret1=re.findall(r"-?\d+\.\d*|(-?\d+)","1-2*(60+(-40.35/5)-(-4*3))")
+# ret1.remove("")
+#
+# print(ret0)
+# print(ret1)
+# # ['1', '2', '60', '40', '35', '5', '4', '3']
+# # ['1', '-2', '60', '5', '-4', '3']
+
+#匹配内容分组
+# ret = re.search('(?P<name>[a-zA-Z]+)(?P<age>\d+)','lilie18tom17')
+# # print(ret.group('name'))
+# # print(ret.group('age'))
+# # # lilie
+# # # 18
+
+#ret = re.finditer('(?P<name>[a-zA-Z]+)(?P<age>\d+)','lilie18tom17hanmeimei16')
+# print(next(ret).group('name','age'))
+# print(next(ret).group('name','age'))
+# print(next(ret).group('name','age'))
+# # ('lilie', '18')
+# # ('tom', '17')
+# # ('hanmeimei', '16')
+
+#使用for循环
+# for i in ret:
+#     print(i.group('name','age')
+#
+# # ('lilie', '18')
+# # ('tom', '17')
+# # ('hanmeimei', '16')
