@@ -16,8 +16,8 @@ class Ship():
 
         #将每一艘飞船放在屏幕底部中央
         self.rect.centerx = self.screen_rect.centerx
-        self.rect.centery = self.screen_rect.centery #Y轴中央
-        #self.rect.bottom = self.screen_rect.bottom  #Y轴底部（底部）
+        #self.rect.centery = self.screen_rect.centery #Y轴中央
+        self.rect.bottom = self.screen_rect.bottom  #Y轴底部（底部）
 
         #在飞船的属性center中存储小数值
         self.centerx = float(self.rect.centerx)
