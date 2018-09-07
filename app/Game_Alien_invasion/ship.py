@@ -39,16 +39,12 @@ class Ship():
             self.centerx += self.ai_settings.ship_speed_factorx
         if self.moving_left and self.rect.left > 0:
             self.centerx -= self.ai_settings.ship_speed_factorx
-        #if self.moving_top and self.rect.top < self.screen_rect.top:
-
         if self.moving_up and self.rect.top >0 :
             self.centery -= self.ai_settings.ship_speed_factory
-
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.centery += self.ai_settings.ship_speed_factory
 
-
-        #根据self.center 更新rect 对象
+        #根据self.centerx或self.centery 更新rect 对象
         self.rect.centerx = self.centerx
         self.rect.centery = self.centery
 
