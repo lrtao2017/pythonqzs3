@@ -19,6 +19,10 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
         ship.moving_down = True
     elif event.key == pygame.K_SPACE:
+        ai_settings.bullet_width = 3
+        fire_bullet(ai_settings, screen, ship, bullets)
+    elif event.key == pygame.K_x:
+        ai_settings.bullet_width = 960
         fire_bullet(ai_settings, screen, ship, bullets)
     elif event.key == pygame.K_q:
         sys.exit()
@@ -59,7 +63,7 @@ def update_screen(ai_settings, screen, ship, aliens,bullets):
     # 让最近绘制的屏幕可见
     pygame.display.flip()
 
-def update_bullets(bullets):
+def update_bullets(ai_settings, screen, ship, aliens, bullets):
     """更新子弹的位置，并删除已经消失的子弹"""
     #更新子弹位置
     bullets.update()
@@ -68,6 +72,16 @@ def update_bullets(bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
     # print(len(bullets)) #在后台显示子弹数量，用于验证子弹是否消失
+
+    #检查子弹是否击中外星人
+    #子弹击中外星人后，外星人和子弹一同消失
+    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    if len(aliens) == 0:
+        #删除现有的子弹并新建一群外星人
+        bullets.empty()
+        create_fleet(ai_settings, screen, ship, aliens)
+
 
 def fire_bullet(ai_settings, screen, ship, bullets):
     """如果没有达到子弹上限，就创建一个新子弹"""
