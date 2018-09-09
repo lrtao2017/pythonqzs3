@@ -4,6 +4,7 @@ __author__ = "lrtao2010"
 import pygame
 from settings import Settings
 from game_stats import GameStats
+from scoreboard import Scoreboard
 from button import Button
 from ship import Ship
 import game_functions as gf
@@ -18,8 +19,9 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
-    #创建一个用于存储游戏统计信息的实例
+    #创建一个用于存储游戏统计信息的实例,并创建记分牌
     stats = GameStats(ai_settings)
+    s_b = Scoreboard(ai_settings, screen, stats)
 
     #创建一艘飞船
     ship = Ship(ai_settings, screen)
@@ -45,7 +47,7 @@ def run_game():
             ship.update()
             gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
-        gf.update_screen(ai_settings, screen, stats, ship, aliens,bullets, play_button)
+        gf.update_screen(ai_settings, screen, stats, s_b, ship, aliens,bullets, play_button)
 
 
 run_game()
