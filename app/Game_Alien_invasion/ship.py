@@ -52,3 +52,9 @@ class Ship():
         '''在指定位置绘制飞船'''
         self.screen.blit(self.image,self.rect)
 
+    def center_ship(self):
+        """让飞船在屏幕上居中"""
+        self.centerx = self.screen_rect.centerx
+        self.centery = 575.00
+        self.rect.bottom = self.screen_rect.bottom
+
