@@ -13,8 +13,7 @@ class Scoreboard():
         self.screen_rect = screen.get_rect()
         self.ai_settings = ai_settings
         self.stats = stats
-        #self.prep_level()
-        self.prep_ships()
+        
 
         #显示得分信息使用的字体设置
         self.text_color = (30,30,30)
@@ -24,6 +23,10 @@ class Scoreboard():
         self.prep_score()
         self.prep_high_score()
         self.prep_level()
+		
+		#显示剩余多少艘飞船图像
+        self.prep_ships()
+		
 
     def prep_high_score(self):
         """将最高得分转换为渲染的图像"""
