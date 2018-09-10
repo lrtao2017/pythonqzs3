@@ -24,7 +24,7 @@ class Scoreboard():
         self.prep_high_score()
         self.prep_level()
 		
-		#显示剩余多少艘飞船图像
+        #显示剩余多少艘飞船图像
         self.prep_ships()
 		
 
