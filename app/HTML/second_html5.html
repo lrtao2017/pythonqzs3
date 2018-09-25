@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--
 <p>Here is some <span style="text-decoration: underline;">underlined text</span>.</p>
 <p>Here is some <span style="text-decoration: overline;">overlined text</span>.</p>
 <p>Here is some <span style="text-decoration: line-through;">line-through text</span>.</p>
@@ -10,7 +11,8 @@
 <p>Here is some <span style="font-weight: lighter;">lighter text</span>.</p>
 <p>Here is some <span style="font-weight: 700;">bolder 700 text</span>.</p>
 <hr />
-<pre> <!--预定格式-->
+
+<pre>
            (   )
     Moo    (o o)
             \ /--------\
@@ -18,6 +20,7 @@
               | | --w  | | *
               | |      | |
 </pre>
+
 <hr />
 <hr width="75%" color="red" size="2" />
 <hr width="50%" color="green" size="8" />
@@ -26,3 +29,49 @@
 <hr />
 <p>测试换行<br>测试换行<br>测试换行<br>测试换行<br></p>
 <hr />
+
+<style type="text/css">
+    h1 { font-size: x-large; font-weight: bold;}
+    h2 { font-size: large; font-weight: bold}
+</style>
+
+<h1>这是h1</h1>
+<h2>这是h2</h2>
+-->
+
+<html>
+<head>
+    <title>Nested Elements</title>
+    <style type="text/css">
+        .outer { border: 2px dotted black;
+            background-color: gray;
+            padding: 15px;
+            margin: 40px;}
+        .inner { border: 2px solid black;
+            background-color: white;
+            padding: 15px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;}
+        body { margin: 20px;
+            border: 3px solid blue;
+            padding: 20px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    Outer.
+    <div class="inner">
+        这是一个测试<br />
+        这是一个测试<br />
+        这是一个测试<br />
+        这是一个测试<br />
+        这是一个测试<br />
+    </div>
+</div>
+
+</body>
+
+</html>
